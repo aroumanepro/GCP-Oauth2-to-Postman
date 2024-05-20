@@ -22,10 +22,13 @@ jobs:
         run: |
           npm install
           npm install --save-dev @electron-forge/cli
-          npm install --save-dev webpack webpack-cli
           npx electron-forge import
 
-      - name: Build Electron app
+      - name: Package Electron app
+        run: |
+          npx electron-forge package
+
+      - name: Make Electron app
         run: |
           npx electron-forge make --platform=linux --arch=x64
 
