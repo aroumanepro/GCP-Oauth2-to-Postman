@@ -21,16 +21,14 @@ jobs:
       - name: Install dependencies
         run: |
           npm install
-          npm install --save-dev @electron-forge/cli
-          npx electron-forge import
 
       - name: Package Electron app
         run: |
-          npx electron-forge package
+          npm run package
 
       - name: Make Electron app
         run: |
-          npx electron-forge make --platform=linux --arch=x64
+          npm run make
 
       - name: Prepare .deb package
         run: |
