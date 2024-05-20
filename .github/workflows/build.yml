@@ -1,0 +1,60 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install --save-dev @electron-forge/cli
+          npx electron-forge import
+
+      - name: Build Electron app
+        run: |
+          npx electron-forge make --platform=linux --arch=x64
+
+      - name: Prepare .deb package
+        run: |
+          mv out/make/deb/x64/*.deb gcp-to-postman.deb
+
+      - name: Upload Debian package
+        uses: actions/upload-artifact@v2
+        with:
+          name: gcp-to-postman-deb
+          path: gcp-to-postman.deb
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./gcp-to-postman.deb
+          asset_name: gcp-to-postman.deb
+          asset_content_type: application/octet-stream

@@ -1,0 +1,16 @@
+.step-title {
+    color: #000; /* Couleur par défaut du titre */
+  }
+  
+  .step-description {
+    color: #a0a0a0; /* Couleur grisée par défaut du texte */
+  }
+  
+  .step-container:hover .step-title {
+    color: #1890ff; /* Couleur du titre lors du survol */
+  }
+  
+  .step-container:hover .step-description {
+    color: #000; /* Couleur du texte lors du survol */
+  }
+  
