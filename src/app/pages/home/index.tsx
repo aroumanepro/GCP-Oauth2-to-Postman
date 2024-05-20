@@ -102,7 +102,7 @@ const Home = () => {
             </li>
             <li>
               <Text strong>Auth URL:</Text>{" "}
-              <Text code>http://localhost:8086/auth2/auth</Text>
+              <Text code>http://localhost:8086/auth2/auth/gcp</Text>
             </li>
             <li>
               <Text strong>Access Token URL:</Text>{" "}

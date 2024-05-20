@@ -33,7 +33,7 @@ First, configure a collection in Postman. Choose the authentication type **OAuth
 - **Token Name:** `GCP OAuth`
 - **Grant type:** `Authorization Code`
 - **Callback URL:** `https://oauth.pstmn.io/v1/browser-callback`
-- **Auth URL:** `http://localhost:8086/auth2/auth`
+- **Auth URL:** `http://localhost:8086/auth2/auth/gcp`
 - **Access Token URL:** `http://localhost:8086/token`
 - **Client ID:** 
 - **Client Secret:** 

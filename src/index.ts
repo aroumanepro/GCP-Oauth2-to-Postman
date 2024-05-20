@@ -30,7 +30,7 @@ const createWindow = (): void => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     height: 600,
-    width: 800,
+    width: 900,
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
@@ -313,14 +313,6 @@ const sendLog = (message: string) => {
   }
 };
 
-expressApp.get("/api", (req, res) => {
-  sendLog(`check api`);
-  res.send("Hello from Express!");
-});
-
-expressApp.get("/auth2/auth", (req, res) => {
-  return actionAuth(req, res);
-});
 
 expressApp.get("/auth2/auth/gcp", (req, res) => {
   return auth(req, res);
