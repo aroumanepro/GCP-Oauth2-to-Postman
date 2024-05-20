@@ -1,8 +1,8 @@
 {
   "name": "auth-gcloud-postman",
   "productName": "auth-gcloud-postman",
-  "version": "1.0.0",
-  "description": "My Electron application description",
+  "version": "1.0.6",
+  "description": "GCP connector for postman",
   "main": ".webpack/main",
   "scripts": {
     "start": "electron-forge start",
