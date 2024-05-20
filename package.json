@@ -1,7 +1,7 @@
 {
   "name": "auth-gcloud-postman",
   "productName": "auth-gcloud-postman",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "GCP connector for postman",
   "main": ".webpack/main",
   "scripts": {
